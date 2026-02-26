@@ -2,7 +2,7 @@ import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "../assets/styles/Main.scss";
-import avatar from "../assets/images/bg-dark.png";
+import avatar from "../assets/images/legal picture.jpg";
 import Avatar from "@mui/material/Avatar";
 
 function Main() {
@@ -76,3 +76,4 @@ function Main() {
 }
 
 export default Main;
+
