@@ -1,34 +1,16 @@
 import React, { ElementType, useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import List from "@mui/material/List";
-import ListIcon from "@mui/icons-material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Logo from "../assets/images/logo_nav_bar.png";
-import shadows from "@mui/material/styles/shadows";
 import Obfuscate from "react-obfuscate";
 import Slide from "@mui/material/Slide";
 import { useScrollTrigger } from "@mui/material";
-import { jsx } from "@emotion/react";
-
-const drawerWidth = 240;
-const navItems = [
-  // ["Expertise", "expertise"],
-  // ["History", "history"],
-  // ["Projects", "projects"],
-  ["Contact", "contact"],
-];
+import LogoMobile from "../assets/images/logo_mobile.png";
 
 function HideOnScroll({ children }: any) {
   const trigger = useScrollTrigger();
@@ -43,12 +25,7 @@ function HideOnScroll({ children }: any) {
 function Navigation({ parentToChild, modeChange }: any) {
   const { mode } = parentToChild;
 
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,43 +42,6 @@ function Navigation({ parentToChild, modeChange }: any) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const scrollToSection = (section: string) => {
-    console.log(section);
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: "smooth" });
-      console.log("Scrolling to:", expertiseElement); // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found'); // Debugging: Log error if element is not found
-    }
-  };
-
-  const drawer = (
-    <Box
-      className="navigation-bar-responsive"
-      onClick={handleDrawerToggle}
-      sx={{ textAlign: "center" }}
-    >
-      <p className="mobile-menu-top">
-        <ListIcon />
-        Menu
-      </p>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item[0]} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center" }}
-              onClick={() => scrollToSection(item[1])}
-            >
-              <ListItemText primary={item[0]} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   const address: ElementType = () => <>{process.env.REACT_APP_ADDRESS}</>;
 
@@ -122,15 +62,12 @@ function Navigation({ parentToChild, modeChange }: any) {
               <img src={Logo} alt="Logo" style={{ height: "80px" }} />
             </Box>
 
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
+            <Box
+              sx={{ display: { xs: "flex", md: "none" }, mr: 1, mt: 1, mb: 1 }}
             >
-              <MenuIcon />
-            </IconButton>
+              <img src={LogoMobile} alt="Logo" style={{ height: "100px" }} />
+            </Box>
+
             {mode === "dark" ? (
               <LightModeIcon onClick={() => modeChange()} />
             ) : (
@@ -143,6 +80,8 @@ function Navigation({ parentToChild, modeChange }: any) {
                 ml: "auto",
                 color: "#43a59d",
                 fontSize: "0.9rem",
+                paddingTop: { xs: "10px", md: "0px" },
+                paddingBottom: { xs: "10px", md: "0px" },
               }}
             >
               <span>
@@ -150,7 +89,8 @@ function Navigation({ parentToChild, modeChange }: any) {
               </span>
               <span style={{ marginBottom: "10px" }}>BARRISTER</span>
               <span>
-                <b>Mobile/WhatsApp:</b> <Obfuscate tel={process.env.REACT_APP_PHONE_NUMBER} />
+                <b>Mobile/WhatsApp:</b>{" "}
+                <Obfuscate tel={process.env.REACT_APP_PHONE_NUMBER} />
               </span>
               <span>
                 <b>Email:</b>{" "}
@@ -172,28 +112,8 @@ function Navigation({ parentToChild, modeChange }: any) {
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      <nav>
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
     </Box>
   );
 }
 
 export default Navigation;
-
