@@ -10,6 +10,8 @@ import {
 } from "./components";
 import FadeIn from "./components/FadeIn";
 import "./index.scss";
+import Background from "./assets/images/background.png";
+import { Box } from "@mui/material";
 
 function App() {
   const [mode, setMode] = useState<string>("light");
@@ -36,7 +38,17 @@ function App() {
         <Expertise />
         {/* <Timeline />
         <Project /> */}
-        <Contact />
+        {/* <Contact /> */}
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 0,
+            right: 0,
+            zIndex: 0,
+          }}
+        >
+          <img src={Background} alt="background" style={{ height: "1000px" }} />
+        </Box>
       </FadeIn>
       {/* <Footer /> */}
     </div>

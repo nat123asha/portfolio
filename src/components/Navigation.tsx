@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ElementType, useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,6 +15,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
+import Logo from "../assets/images/logo_nav_bar.png";
+import shadows from "@mui/material/styles/shadows";
+import Obfuscate from "react-obfuscate";
+import Slide from "@mui/material/Slide";
+import { useScrollTrigger } from "@mui/material";
+import { jsx } from "@emotion/react";
 
 const drawerWidth = 240;
 const navItems = [
@@ -23,6 +29,16 @@ const navItems = [
   // ["Projects", "projects"],
   ["Contact", "contact"],
 ];
+
+function HideOnScroll({ children }: any) {
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children ?? <div />}
+    </Slide>
+  );
+}
 
 function Navigation({ parentToChild, modeChange }: any) {
   const { mode } = parentToChild;
@@ -87,31 +103,63 @@ function Navigation({ parentToChild, modeChange }: any) {
     </Box>
   );
 
+  const address: ElementType = () => <>{process.env.REACT_APP_ADDRESS}</>;
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        component="nav"
-        id="navigation"
-        className={`navbar-fixed-top${scrolled ? " scrolled" : ""}`}
-      >
-        <Toolbar className="navigation-bar">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {mode === "dark" ? (
-            <LightModeIcon onClick={() => modeChange()} />
-          ) : (
-            <div></div> //</AppBar><DarkModeIcon onClick={() => modeChange()} />
-          )}
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
+      <HideOnScroll>
+        <AppBar
+          component="nav"
+          id="navigation"
+          sx={{ boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)" }}
+          className={`navbar-fixed-top${scrolled ? " scrolled" : ""}`}
+        >
+          <Toolbar className="navigation-bar">
+            <Box
+              sx={{ display: { xs: "none", md: "flex" }, mr: 1, mt: 4, mb: 4 }}
+            >
+              <img src={Logo} alt="Logo" style={{ height: "80px" }} />
+            </Box>
+
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            {mode === "dark" ? (
+              <LightModeIcon onClick={() => modeChange()} />
+            ) : (
+              <div></div> //</AppBar><DarkModeIcon onClick={() => modeChange()} />
+            )}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                ml: "auto",
+                color: "#43a59d",
+                fontSize: "0.9rem",
+              }}
+            >
+              <span>
+                <b>NATASHA FAIRLEY</b>
+              </span>
+              <span style={{ marginBottom: "10px" }}>BARRISTER</span>
+              <span>
+                <b>P:</b> <Obfuscate tel={process.env.REACT_APP_PHONE_NUMBER} />
+              </span>
+              <span>
+                <b>E:</b>{" "}
+                <Obfuscate email={process.env.REACT_APP_EMAIL_ADDRESS} />
+              </span>
+              <span>
+                <Obfuscate element={address} />
+              </span>
+              {/* {navItems.map((item) => (
               <Button
                 key={item[0]}
                 onClick={() => scrollToSection(item[1])}
@@ -119,10 +167,11 @@ function Navigation({ parentToChild, modeChange }: any) {
               >
                 {item[0]}
               </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+            ))} */}
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <nav>
         <Drawer
           variant="temporary"

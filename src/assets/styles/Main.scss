@@ -8,9 +8,9 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: 0px 15%;
+  padding: 0px 10%;
   min-height: 700px;
-  background-image: url("../images/bg-dark.png");
+  //background-image: url("../images/bg-dark.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -52,7 +52,7 @@
 .about-section .image-wrapper {
   z-index: 2;
   img {
-    width: 150px;
+    // width: 150px;
     border-radius: 50%;
   }
 }
@@ -148,8 +148,8 @@
     }
 
     .about-section .image-wrapper {
-      padding-left: 5%;
-      width: 100%;
+      // padding-left: 5%;
+      // width: 100%;
     }
   }
 }

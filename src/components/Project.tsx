@@ -1,14 +1,14 @@
 import React from "react";
-import mock01 from "../assets/images/bg-dark.png";
-import mock02 from "../assets/images/bg-dark.png";
-import mock03 from "../assets/images/bg-dark.png";
-import mock04 from "../assets/images/bg-dark.png";
-import mock05 from "../assets/images/bg-dark.png";
-import mock06 from "../assets/images/bg-dark.png";
-import mock07 from "../assets/images/bg-dark.png";
-import mock08 from "../assets/images/bg-dark.png";
-import mock09 from "../assets/images/bg-dark.png";
-import mock10 from "../assets/images/bg-dark.png";
+import mock01 from "../assets/images/logo_nav_bar.png";
+import mock02 from "../assets/images/logo_nav_bar.png";
+import mock03 from "../assets/images/logo_nav_bar.png";
+import mock04 from "../assets/images/logo_nav_bar.png";
+import mock05 from "../assets/images/logo_nav_bar.png";
+import mock06 from "../assets/images/logo_nav_bar.png";
+import mock07 from "../assets/images/logo_nav_bar.png";
+import mock08 from "../assets/images/logo_nav_bar.png";
+import mock09 from "../assets/images/logo_nav_bar.png";
+import mock10 from "../assets/images/logo_nav_bar.png";
 import "../assets/styles/Project.scss";
 
 function Project() {

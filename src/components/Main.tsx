@@ -13,7 +13,8 @@ function Main() {
           <Avatar
             src={avatar}
             alt="Avatar"
-            sx={{ width: 200, height: 200, bgcolor: "white" }}
+            style={{ objectFit: "cover" }}
+            sx={{ width: 300, height: 300, bgcolor: "white" }}
           />
         </div>
         <div className="content">
@@ -25,33 +26,16 @@ function Main() {
             >
               <GitHubIcon />
             </a> */}
-            <a
+            {/* <a
               href="https://www.linkedin.com/in/yujisato/"
               target="_blank"
               rel="noreferrer"
             >
               <LinkedInIcon />
-            </a>
+            </a> */}
           </div>
-          <h1
-            style={{
-              background: "rgb(205 0 161 / 30%)",
-              paddingLeft: "30px",
-              paddingRight: "30px",
-            }}
-          >
-            Natasha Fairley
-          </h1>
-          <p
-            style={{
-              background: "rgb(135 192 225 / 90%)",
-              paddingLeft: "30px",
-              paddingRight: "30px",
-              marginTop: "20px",
-            }}
-          >
-            Family Lawyer
-          </p>
+          <h1>Natasha Fairley</h1>
+          <p>Family Lawyer</p>
 
           <div className="mobile_social_icons">
             {/* <a
@@ -76,4 +60,3 @@ function Main() {
 }
 
 export default Main;
-
