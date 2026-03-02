@@ -114,7 +114,7 @@
     }
 
     .container {
-      display: initial;
+      //display: initial;
     }
 
     .social_icons {
@@ -138,6 +138,7 @@
       display: block;
       padding-left: 0px;
       padding-right: 0px;
+      z-index: 2;
     }
 
     .about-section .content {
