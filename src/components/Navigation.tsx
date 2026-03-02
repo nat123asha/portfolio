@@ -150,10 +150,10 @@ function Navigation({ parentToChild, modeChange }: any) {
               </span>
               <span style={{ marginBottom: "10px" }}>BARRISTER</span>
               <span>
-                <b>P:</b> <Obfuscate tel={process.env.REACT_APP_PHONE_NUMBER} />
+                <b>Mobile/WhatsApp:</b> <Obfuscate tel={process.env.REACT_APP_PHONE_NUMBER} />
               </span>
               <span>
-                <b>E:</b>{" "}
+                <b>Email:</b>{" "}
                 <Obfuscate email={process.env.REACT_APP_EMAIL_ADDRESS} />
               </span>
               <span>
@@ -196,3 +196,4 @@ function Navigation({ parentToChild, modeChange }: any) {
 }
 
 export default Navigation;
+
