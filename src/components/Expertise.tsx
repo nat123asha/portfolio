@@ -16,7 +16,7 @@ function Expertise() {
         <h1>Expertise</h1>
         <div className="skills-grid">
           <div className="skill">
-            <h3>Full Stack Web Development</h3>
+            <h3>Care and contact disputes</h3>
             <p>
               I have built a diverse array of web applications from scratch
               using modern technologies such as React and Flask. I have a strong
@@ -26,7 +26,7 @@ function Expertise() {
           </div>
 
           <div className="skill">
-            <h3>DevOps & Automation</h3>
+            <h3>Guardianship dispute</h3>
             <p>
               Once the application is built, I help clients set up DevOps
               testing, CI/CD pipelines, and deployment automation to support the
@@ -35,7 +35,7 @@ function Expertise() {
           </div>
 
           <div className="skill">
-            <h3>GenAI & LLM</h3>
+            <h3>Family Violence</h3>
             <p>
               Stay relevant in the market by leveraging the latest AI models in
               your projects. I have professional experience building enterprise
@@ -50,3 +50,4 @@ function Expertise() {
 }
 
 export default Expertise;
+
