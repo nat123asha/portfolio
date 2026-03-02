@@ -37,7 +37,8 @@ jobs:
         env:
           CI: false # Prevents build failures due to warnings in Create React App
           REACT_APP_PHONE_NUMBER: ${{ secrets.REACT_APP_PHONE_NUMBER }}
-          REACT_APP_WHATSAPP_NUMBER: ${{ secrets.REACT_APP_WHATSAPP_NUMBER }}
+          REACT_APP_ADDRESS: ${{ secrets.REACT_APP_ADDRESS }}
+          REACT_APP_EMAIL_ADDRESS: ${{ secrets.REACT_APP_EMAIL_ADDRESS }}
       - name: Upload artifact
         # Uploads the build output for deployment
         uses: actions/upload-pages-artifact@v3
