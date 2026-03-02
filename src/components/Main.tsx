@@ -35,8 +35,8 @@ function Main() {
             </a> */}
           </div>
           <h1>Natasha Fairley</h1>
-          <h3>Barrister</h3>
-          <p style={{marginTop:"40px"}}>Natasha has over 10 years of court experience in the Family Court. Natasha has also represented clients in the High Court and appeared at the Court of Appeal.
+          <h3 style={{marginTop: "-20px"}}>Barrister</h3>
+          <p style={{marginTop:"40px", fontSize="1rem"}}>Natasha has over 10 years of court experience in the Family Court. Natasha has also represented clients in the High Court and appeared at the Court of Appeal.
 Specialising in parenting and guardianship disputes under the Care of Children Act 2004, Oranga Tamariki Act 1989 proceedings, and Family Violence Act 2018 proceedings, including applications for and responding to protection order applications.
 Natasha also deals with matters relating to mental health under the Mental Health (Compulsory Assessment and Treatment) Act 1992 and appointments of welfare guardians and property managers under the Protection of Personal and Property Rights Act 1988.
 A legal aid provider for over seven years, Natasha can assist clients on a private basis or who require legal aid for legal representation.</p>
@@ -64,4 +64,5 @@ A legal aid provider for over seven years, Natasha can assist clients on a priva
 }
 
 export default Main;
+
 
